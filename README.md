@@ -57,15 +57,11 @@ If at any point you are uncertain about using Recovery Mode, please [**contact u
 
  On Windows:
 
-```
-fastboot boot hybris-recovery.img
-```
+`fastboot boot hybris-recovery.img`
 
 On Linux or Mac:
 
-```
-sudo fastboot boot hybris-recovery.img
-```
+`sudo fastboot boot hybris-recovery.img`
 
 ![](Forcing%20Xperia%20to%20RecoveryMode-2.png)
 
@@ -235,10 +231,10 @@ In some circumstances it may happen that the allowed maximum number of unlock at
 - Take option &quot;3) Shell&quot; in the Recovery menu
 - Type the following two commands.  In the latter command **replace &quot;12345&quot;** with your correct security code!  These commands work with Sailfish OS version 2.2.0.29, at least.
 
-```
+`
 chroot /rootfs
 /usr/lib/qt5/plugins/devicelock/encsfa-fpd --check-code 12345
-```
+`
 
 -  Type exit to escape the Shell.
 
@@ -252,7 +248,7 @@ Please type the security code of your Xperia when requested.
 
 The following excerpt shows the output from an Xperia XA2:
 
-```
+`
   Type the number of the desired action and press [Enter]:
   4
   /dev/mmcblk0rpmb: read failed after 0 of 4096 at 0: Input/output error
@@ -283,7 +279,7 @@ The following excerpt shows the output from an Xperia XA2:
   Done
 
 Press [Enter] to return to recovery menu...
-```
+`
 
 
 
