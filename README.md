@@ -1,10 +1,11 @@
-# Xperia devices: How to use the Recovery Mode
+# Xperia 10 II: How to use the Recovery Mode
 
 
-If your Xperia is not starting up normally or not starting up at all, you can attempt to fix your device with the help of the Recovery Mode. This article will provide you with step-by-step instructions on recovering a malfunctioning device.
+If your Xperia 10 II is not starting up normally or not starting up at all, you can attempt to fix your device with the help of the Recovery Mode. This article will provide you with step-by-step instructions on recovering a malfunctioning device.
 
-**NOTE:** _This article is for Xperia devices only. There are separate articles for Jolla Phone, Jolla C (also Aqua Fish) and for Jolla Tablet:_
+**NOTE:** _This article is for Xperia 10 II only. There are separate articles for all other Xperias, Jolla Phone, Jolla C (also Aqua Fish) and for Jolla Tablet:_
 
+- Xperia X, XA2, 10: [**https://jolla.zendesk.com/hc/en-us/articles/360002996893**](https://jolla.zendesk.com/hc/en-us/articles/360002996893)
 - Jolla Phone: [**https://jolla.zendesk.com/hc/en-us/articles/204709607**](https://jolla.zendesk.com/hc/en-us/articles/204709607)
 - Jolla C &amp; Aqua Fish: [**https://jolla.zendesk.com/hc/en-us/articles/115000663928**](https://jolla.zendesk.com/hc/en-us/articles/115000663928)
 - Jolla Tablet: [**https://jolla.zendesk.com/hc/en-us/articles/208406917**](https://jolla.zendesk.com/hc/en-us/articles/208406917)
@@ -57,15 +58,21 @@ If at any point you are uncertain about using Recovery Mode, please [**contact u
 
  On Windows:
 
-`fastboot boot hybris-recovery.img`
+`fastboot flash boot_a hybris-recovery.img`
+
+`fastboot flash boot_b hybris-recovery.img`
+
+`fastboot reboot`
 
 On Linux or Mac:
 
-`sudo fastboot boot hybris-recovery.img`
+`sudo fastboot flash boot_a hybris-recovery.img`
 
-![](Forcing%20Xperia%20to%20RecoveryMode-2.png)
+`sudo fastboot flash boot_b hybris-recovery.img`
 
-Detach the USB cable now.
+`sudo fastboot reboot`
+
+![](Flashing%20and%20booting%20Xperia%2010%20II%20to%20RecoveryMode.png)
 
 After this, there should not be any BLUE light on your Xperia. Instead, the following text should appear (in a really tiny font) at the top of Xperia display :
 
@@ -291,8 +298,33 @@ It is crucial to follow the below steps to successfully revert your phone from R
 
 2. Disconnect the USB cable from the phone.
 
-3. Press Vol Up key down, keep it pressed and then also press the Power key. Release both keys whn you feel the vibrator play.
+3. Press Vol Up key down, keep it pressed and then also press the Power key. When you feel the vibrator play, release Power key.
+  - ensure that the LED at the top of the display area is lit in BLUE colour
+ (if not, disconnect the cable, release the key and try again)
 
-4. Turn the phone on. It is now back in the normal state.
+4. **It is mandatory** to obtain the same version of `hybris-boot.img` that belongs to the Sailfish OS version of your phone currently. In other words, if you have updated OS version 4.1.0 (say) to your phone, then you should use the hybris-boot.img of that OS release. To ensure this, download the latest Sailfish OS image from **https://shop.jolla.com/downloads/** (provided that you have updated your phone to the latest).  Unzip the archive and observe the hybris-boot.img file in it.
+
+- Open the Terminal app on your computer. Proceed to the directory where you have the hybris-boot.img file.
+- The following command will restore the boot partition (the BLUE LED should be lit at this point)
+
+ On Windows:
+
+`fastboot flash boot_a hybris-boot.img`
+
+`fastboot flash boot_b hybris-boot.img`
+
+`fastboot reboot`
+
+On Linux or Mac:
+
+`sudo fastboot flash boot_a hybris-boot.img`
+
+`sudo fastboot flash boot_b hybris-boot.img`
+
+`sudo fastboot reboot`
+
+![](Restoring%20Xperia%2010%20II%20boot%20partition.png)
+
+5. After reboot, your phone will be back to the normal state.
 
 Please read this general [**article about factory reset**](https://jolla.zendesk.com/hc/en-us/articles/201890427). In particular, read what is recommended after the factory reset, as explained in chapter &quot;_First actions after the reset&quot;_
