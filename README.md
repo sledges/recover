@@ -1,10 +1,11 @@
-# Xperia devices: How to use the Recovery Mode
+# Xperia 10 II: How to use the Recovery Mode
 
 
-If your Xperia is not starting up normally or not starting up at all, you can attempt to fix your device with the help of the Recovery Mode. This article will provide you with step-by-step instructions on recovering a malfunctioning device.
+If your Xperia 10 II is not starting up normally or not starting up at all, you can attempt to fix your device with the help of the Recovery Mode. This article will provide you with step-by-step instructions on recovering a malfunctioning device.
 
-**NOTE:** _This article is for Xperia devices only. There are separate articles for Jolla Phone, Jolla C (also Aqua Fish) and for Jolla Tablet:_
+**NOTE:** _This article is for Xperia 10 II only. There are separate articles for all other Xperias, Jolla Phone, Jolla C (also Aqua Fish) and for Jolla Tablet:_
 
+- Xperia X, XA2, 10: [**https://jolla.zendesk.com/hc/en-us/articles/360002996893**](https://jolla.zendesk.com/hc/en-us/articles/360002996893)
 - Jolla Phone: [**https://jolla.zendesk.com/hc/en-us/articles/204709607**](https://jolla.zendesk.com/hc/en-us/articles/204709607)
 - Jolla C &amp; Aqua Fish: [**https://jolla.zendesk.com/hc/en-us/articles/115000663928**](https://jolla.zendesk.com/hc/en-us/articles/115000663928)
 - Jolla Tablet: [**https://jolla.zendesk.com/hc/en-us/articles/208406917**](https://jolla.zendesk.com/hc/en-us/articles/208406917)
@@ -19,7 +20,7 @@ Recovery Mode is considered a last resort and should be used only if there is no
  It is a powerful tool and using it always means that your data on the device is at risk.
  Please read the instructions in this article carefully.
 
-**NOTE** :  You can install Sailfish X again (&quot;re-flash&quot;)  to your Xperia device. This is an effective way to resolve many kinds of problems, compared to Recovery Mode. Your Sailfish X license even entitles you to download a more recent Sailfish version from [**Jolla Shop**](https://shop.jolla.com/downloads/) **. ** On the other hand, flashing implies that all data and apps in the device will be wiped away and lost. Please consider which way suits better to you.
+**NOTE** :  You can install Sailfish X again (&quot;re-flash&quot;)  to your Xperia 10 II device. This is an effective way to resolve many kinds of problems, compared to Recovery Mode. Your Sailfish X license even entitles you to download a more recent Sailfish version from [**Jolla Shop**](https://shop.jolla.com/downloads/) **. ** On the other hand, flashing implies that all data and apps in the device will be wiped away and lost. Please consider which way suits better to you.
 
 If at any point you are uncertain about using Recovery Mode, please [**contact us**](https://jolla.zendesk.com/hc/en-us/requests/new).
 
@@ -36,38 +37,44 @@ If at any point you are uncertain about using Recovery Mode, please [**contact u
 
 ## **2 Setting up Recovery Mode**
 
-### **2.1 Forcing Xperia to Recovery Mode**
+### **2.1 Forcing Xperia 10 II to Recovery Mode**
 
-- Disconnect USB cable from Xperia
-- Turn Xperia OFF
-- If you have the _fastboot drivers_ (Windows) or _fastboot tools_ (Linux, Mac) already installed on your computer, skip to the next step. You have them if you installed Sailfish OS to your Xperia with the present computer.
+- Disconnect USB cable from Xperia 10 II
+- Turn Xperia 10 II OFF
+- If you have the _fastboot drivers_ (Windows) or _fastboot tools_ (Linux, Mac) already installed on your computer, skip to the next step. You have them if you installed Sailfish OS to your Xperia 10 II with the present computer.
  If not, install _fastboot_ now - the instructions are:
-  - Windows computer: chapter 2 in [**Sailfish X instructions - Windows**](https://jolla.com/sailfishx-windows-instructions/))
-  - Linux computer: chapter 2 in [**Sailfish X instructions - Linux**](https://jolla.com/sailfishx-linux-instructions/))
-  - Mac computer: chapter 2 in [**Sailfish X instructions - Mac**](https://jolla.com/sailfishx-macos-instructions/)).
-- Force your Xperia to _fastboot mode_:
+  - Windows computer: chapter 2 in [**Xperia 10 II Sailfish X instructions - Windows**](https://jolla.com/how-to-install-sailfish-x-on-xperia-10-ii-on-windows/))
+  - Linux computer: chapter 2 in [**Xperia 10 II Sailfish X instructions - Linux**](https://jolla.com/how-to-install-sailfish-x-on-xperia-10-ii-on-linux/))
+  - Mac computer: chapter 2 in [**Xperia 10 II Sailfish X instructions - Mac**](https://jolla.com/how-to-install-sailfish-x-on-xperia-10-ii-on-macos/)).
+- Force your Xperia 10 II to _fastboot mode_:
   - hold Volume Up key down and connect the data-connected USB cable (a charging cable would not work)
   - ensure that the LED at the top of the display area is lit in BLUE colour
  (if not, disconnect the cable, release the key and try again)
 
-- You will need the same version of `hybris-recovery.img `as belongs to the Sailfish OS version of your phone currently. In other words, if you have updated OS version 3.4.0 (say) to your phone, then you should use the hybris-recovery.img of that OS release. To ensure this, download the latest Sailfish OS image from **https://shop.jolla.com/downloads/** (provided that you have updated your phon to the latest).  Unzip the archive and observe the hybris-recovery.img file in it.
+- You will need the same version of `hybris-recovery.img `as belongs to the Sailfish OS version of your phone currently. In other words, if you have updated OS version 3.4.0 (say) to your phone, then you should use the hybris-recovery.img of that OS release. To ensure this, download the latest Sailfish OS image from **https://shop.jolla.com/downloads/** (provided that you have updated your phone to the latest).  Unzip the archive and observe the hybris-recovery.img file in it.
 
 - Open the Terminal app on your computer. Proceed to the directory where you have the hybris-recovery.img file.
 - The following command will enable the Recovery Mode (the BLUE LED should be lit at this point)
 
  On Windows:
 
-`fastboot boot hybris-recovery.img`
+`fastboot flash boot_a hybris-recovery.img`
+
+`fastboot flash boot_b hybris-recovery.img`
+
+`fastboot reboot`
 
 On Linux or Mac:
 
-`sudo fastboot boot hybris-recovery.img`
+`sudo fastboot flash boot_a hybris-recovery.img`
 
-![](Forcing%20Xperia%20to%20RecoveryMode-2.png)
+`sudo fastboot flash boot_b hybris-recovery.img`
 
-Detach the USB cable now.
+`sudo fastboot reboot`
 
-After this, there should not be any BLUE light on your Xperia. Instead, the following text should appear (in a really tiny font) at the top of Xperia display :
+![](Flashing%20and%20booting%20Xperia%2010%20II%20to%20RecoveryMode.png)
+
+After this, there should not be any BLUE light on your Xperia 10 II. Instead, the following text should appear (in a really tiny font) at the top of Xperia 10 II display :
 
 _&quot;RECOVERY:  Connect USB cable and open telnet to address 10.42.66.66&quot;_
 
@@ -81,7 +88,7 @@ If you have
 
 Do the following to install the &quot;_RNDIS drivers_&quot; and the terminal application properly. If you have used Recovery mode before and installed RNDIS drivers then they _might_ still be okay. If you cannot set up a _telnet_ connection later on, then it is best to check the drivers.
 
-1. Connect your Xperia (which is now in the Recovery Mode after running the steps of chapter 2.1) with an USB cable to your computer. While doing this do not press any buttons of Xperia - simply connect the cable.
+1. Connect your Xperia 10 II (which is now in the Recovery Mode after running the steps of chapter 2.1) with an USB cable to your computer. While doing this do not press any buttons of Xperia 10 II - simply connect the cable.
 
  2. Launch Windows Device Manager
 
@@ -222,7 +229,7 @@ NOTE: this option deletes **ALL** data from your device. Resetting to factory se
 
 When the process has completed, please refer to [chapter 3.4](https://jolla.zendesk.com/hc/en-us/articles/360002996893#34) to correctly revert your phone from Recovery Mode back to normal state.
 
-### **3.2 Releasing Xperia from &quot;Permanent lock&quot;**
+### **3.2 Releasing Xperia 10 II from &quot;Permanent lock&quot;**
 
 This requires that you know the correct security code!
 
@@ -242,11 +249,11 @@ chroot /rootfs
 
 ### **3.3 Running file system check**
 
-It is possible to have the file system of your Xperia checked by selecting option #4 in the Recovery menu. This utility will try to fix problems if possible, too.
+It is possible to have the file system of your Xperia 10 II checked by selecting option #4 in the Recovery menu. This utility will try to fix problems if possible, too.
 
-Please type the security code of your Xperia when requested.
+Please type the security code of your Xperia 10 II when requested.
 
-The following excerpt shows the output from an Xperia XA2:
+The following excerpt shows sample output from an Xperia XA2:
 
 `
   Type the number of the desired action and press [Enter]:
@@ -291,8 +298,34 @@ It is crucial to follow the below steps to successfully revert your phone from R
 
 2. Disconnect the USB cable from the phone.
 
-3. Press Vol Up key down, keep it pressed and then also press the Power key. Release both keys whn you feel the vibrator play.
+3. Press Vol Up key down, keep it pressed and then also press the Power key. When you feel the vibrator play, release Power key.
+  - ensure that the LED at the top of the display area is lit in BLUE colour
+ (if not, disconnect the cable, release the key and try again)
 
-4. Turn the phone on. It is now back in the normal state.
+4. **It is mandatory** to obtain the same version of `hybris-boot.img` that belongs to the Sailfish OS version of your phone currently. In other words, if you have updated OS version 4.1.0 (say) to your phone, then you should use the hybris-boot.img of that OS release. To ensure this, download the latest Sailfish OS image from **https://shop.jolla.com/downloads/** (provided that you have updated your phone to the latest).  Unzip the archive and observe the hybris-boot.img file in it.
+ If you still cannot obtain the matching version of hybris-boot.img, you can extract it from device by selecting option "5) Run sshd" and using "scp" to retrieve it from `/rootfs/boot/hybris-boot.img`.
+
+- Open the Terminal app on your computer. Proceed to the directory where you have the hybris-boot.img file.
+- The following command will restore the boot partition (the BLUE LED should be lit at this point)
+
+ On Windows:
+
+`fastboot flash boot_a hybris-boot.img`
+
+`fastboot flash boot_b hybris-boot.img`
+
+`fastboot reboot`
+
+On Linux or Mac:
+
+`sudo fastboot flash boot_a hybris-boot.img`
+
+`sudo fastboot flash boot_b hybris-boot.img`
+
+`sudo fastboot reboot`
+
+![](Restoring%20Xperia%2010%20II%20boot%20partition.png)
+
+5. After reboot, your phone will be back to the normal state.
 
 Please read this general [**article about factory reset**](https://jolla.zendesk.com/hc/en-us/articles/201890427). In particular, read what is recommended after the factory reset, as explained in chapter &quot;_First actions after the reset&quot;_
